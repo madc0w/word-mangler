@@ -81,4 +81,8 @@ function go() {
 		return isUcFirst ? replacement[0].toUpperCase() + replacement.substring(1) : replacement;
 	}).replaceAll('\n', '<br/>');
 	document.getElementById('output-text').innerHTML = output;
+
+	const msg = new SpeechSynthesisUtterance(output);
+	speechSynthesis.speak(msg);
+
 }
