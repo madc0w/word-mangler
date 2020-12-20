@@ -79,8 +79,8 @@ function go() {
 		match = match.toLowerCase();
 		const replacement = (match.length == 1 ? singleLetterReplacements : bigramReplacements)[match];
 		return isUcFirst ? replacement[0].toUpperCase() + replacement.substring(1) : replacement;
-	}).replaceAll('\n', '<br/>');
-	document.getElementById('output-text').innerHTML = output;
+	});
+	document.getElementById('output-text').innerHTML = output.replaceAll('\n', '<br/>');
 
 	const msg = new SpeechSynthesisUtterance(output);
 	speechSynthesis.speak(msg);
